@@ -32,13 +32,6 @@ vpn-secure-project/
 - **Layered VPN**: OpenVPN for remote access, WireGuard tunnel for VM-to-VM communication.
 - **Custom DNS**: DNS traffic is strictly internal and encrypted.
 - **Hard Firewalls**: IPTables allows only essential traffic between interfaces.
-- **Self-Contained**: Easy to replicate in lab or homelab via Proxmox VMs.
-
-## 📖 Documentation
-
-- 📘 [Setup Guide](docs/setup.md)
-- ✅ [Verification Steps](docs/verification.md)
-- 📊 [Sample Logs](docs/logs.md)
 
 ## 🧪 Technologies Used
 

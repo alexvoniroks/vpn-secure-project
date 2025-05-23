@@ -109,7 +109,5 @@ sudo systemctl start wg-quick@wg0
 
 ## ✅ Next Steps
 
-- Connect from a client using OpenVPN.
+- Connect from a client using mobile phone Android OpenVPN.
 - Ensure internal DNS and access to web and database through WireGuard.
-
-📘 Continue to [Verification Guide](verification.md)
