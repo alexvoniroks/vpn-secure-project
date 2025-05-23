@@ -12,7 +12,7 @@ sudo journalctl -u openvpn@server
 Example:
 
 Initialization Sequence Completed
-Peer Connection Initiated with [AF_INET]203.0.113.10:1194
+Peer Connection Initiated with [AF_INET]203.x.x.x:1194
 
 📄 WireGuard Logs (VM1 & VM2)
 
@@ -21,7 +21,7 @@ sudo wg show
 Example:
 
 peer: abcdef1234567890...
-  endpoint: 10.9.0.2:51820
+  endpoint: 10.10.0.2:51820
   latest handshake: 1 minute ago
   transfer: 1.5 MiB received, 2.1 MiB sent
 
@@ -31,8 +31,8 @@ sudo journalctl -u dnsmasq
 
 Example:
 
-dnsmasq[1234]: query[A] example.local from 10.8.0.10
-dnsmasq[1234]: forwarded example.local to 127.0.0.1
+dnsmasq[1234]: query[A] web.mynetwork.local from 10.10.0.2
+dnsmasq[1234]: forwarded web.mynetwork.local to 127.0.0.1
 
 📄 Nginx Logs (VM2)
 
@@ -40,7 +40,7 @@ sudo tail -f /var/log/nginx/access.log
 
 Example:
 
-10.9.0.1 - - [22/May/2025:10:30:21 +0000] "GET / HTTP/1.1" 200 612 "-" "curl/7.68.0"
+10.10.0.2 - - [22/May/2025:10:30:21 +0000] "GET / HTTP/1.1" 200 612 "-" "curl/7.68.0"
 
 📄 MySQL Logs (VM2)
 
