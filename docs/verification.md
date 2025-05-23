@@ -31,13 +31,13 @@ ip a show tun0
 ### On VM1:
 ```bash
 sudo wg show
-ping 10.10.0.2  # Replace with VM2 WireGuard IP
+ping 10.10.0.1  # Replace with VM2 WireGuard IP
 ```
 
 ### On VM2:
 ```bash
 sudo wg show
-ping 10.10.0.1  # Replace with VM1 WireGuard IP
+ping 10.10.0.2  # Replace with VM1 WireGuard IP
 ```
 
 ---
