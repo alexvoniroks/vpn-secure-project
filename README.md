@@ -28,9 +28,9 @@ vpn-secure-project/
 
 ├── vm2-web-db/
 │   ├── nginx/                    # Nginx web server config (VM2)
-│   │   └── default.conf
-│   ├── mysql/                    # MySQL init or setup script (VM2)
-│   │   └── init.sql
+│   │   └── mynetwork.local.conf
+│   ├── mysql/                    # MySQL conf. (VM2)
+│   │   └── mysqld.cnf
 │   ├── wireguard/                # WireGuard client config (VM2)
 │   │   └── wg0.conf
 │   └── iptables/                 # IPTables rules export (VM2)
@@ -39,7 +39,7 @@ vpn-secure-project/
 │       └── dnsmasq.conf
 
 ├── diagrams/
-│   └── network-diagram.png       # Optional network diagram
+│   └── network-diagram.jpg       # Optional network diagram
 
 └── docs/
     ├── setup.md                  # Full setup instructions

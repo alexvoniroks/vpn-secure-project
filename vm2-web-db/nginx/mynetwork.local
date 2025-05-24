@@ -1,0 +1,43 @@
+server {
+    listen 80;
+    server_name web.mynetwork.local;
+
+    root /var/www/html;
+    index index.php index.html index.htm;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/run/php/php7.4-fpm.sock;  # Or use php8.3-fpm.sock if using PHP 8
+    }
+
+    location ~ /\.ht {
+        deny all;
+    }
+}
+
+server {
+    listen 80;
+    server_name db.mynetwork.local;
+
+    root /var/www/html;
+    index index.php index.html index.htm;
+
+    location /phpmyadmin {
+        alias /usr/share/phpmyadmin/;
+        index index.php;
+
+        location ~ \.php$ {
+            include snippets/fastcgi-php.conf;
+            fastcgi_pass unix:/run/php/php7.4-fpm.sock;  # Or php8.3-fpm.sock
+        }
+
+        location ~* \.(js|css|png|jpg|jpeg|gif|ico)$ {
+            expires max;
+            log_not_found off;
+        }
+    }
+}
