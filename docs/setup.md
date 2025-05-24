@@ -37,22 +37,7 @@ sudo apt install wireguard -y
 
 Create keys and config in `vm1-openvpn-wireguard/wireguard/wg0.conf`.
 
-### 3. Configure dnsmasq
-
-```bash
-sudo apt install dnsmasq -y
-```
-
-Place your DNS config in `vm1-openvpn-wireguard/dnsmasq/dnsmasq.conf`.
-
-Enable and restart:
-
-```bash
-sudo systemctl enable dnsmasq
-sudo systemctl restart dnsmasq
-```
-
-### 4. IPTables Rules
+### 3. IPTables Rules
 
 Load rules from `vm1-openvpn-wireguard/iptables/rules.v4`:
 
@@ -86,12 +71,39 @@ sudo apt install mysql-server -y
 
 Load any custom schema from `vm2-web-db/mysql/init.sql`.
 
-### 3. Apply IPTables
+### 3. Configure dnsmasq
 
 ```bash
-sudo iptables-restore < vm2-web-db/iptables/rules.v4
-sudo netfilter-persistent save
+sudo apt install dnsmasq -y
 ```
+
+Place your DNS config in `vm2-web-db/dnsmasq/dnsmasq.conf`.
+
+Enable and restart:
+
+```bash
+sudo systemctl enable dnsmasq
+sudo systemctl restart dnsmasq
+```
+
+### 4. Apply IPTables
+
+## IPTables Rules
+
+To apply the pre-configured IPTables firewall rules on each VM:
+
+### On VM1:
+```bash
+sudo iptables-restore < /home/vpn/vpn-secure-project/vm1-openvpn-wireguard/iptables/rules.v4
+
+On VM2:
+
+sudo iptables-restore < /home/vpn/vpn-secure-project/vm2-web-db/iptables/rules.v4
+
+If you want the rules to persist across reboots, install iptables-persistent:
+
+sudo apt install iptables-persistent
+sudo netfilter-persistent save
 
 ---
 
