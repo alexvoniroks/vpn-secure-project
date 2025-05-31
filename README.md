@@ -13,7 +13,7 @@ This project demonstrates a secure and isolated network infrastructure using:
 
 ## Architecture
 
-![Network Diagram](./network_diagram.jpg)
+![Network Diagram](./network_diagram.png)
 ## 🧩 Components
 
 | Hostname | Type     | IP Address(es)      | Description                                                     |
